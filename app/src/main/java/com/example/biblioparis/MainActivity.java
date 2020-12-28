@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 // TODO : lancement de HommeActivity
-                Intent myIntent = new Intent(MainActivity.this, MapsActivity.class);
+                Intent myIntent = new Intent(MainActivity.this, SideMenu.class);
                 startActivity(myIntent);
                 finish(); // permet de tuer la page
             }
