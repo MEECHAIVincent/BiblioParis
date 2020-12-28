@@ -49,4 +49,5 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(PARIS, 15));
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(12), 2000, null);
     }
+
 }
