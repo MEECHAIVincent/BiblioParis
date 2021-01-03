@@ -1,9 +1,13 @@
 <resources>
-    <string name="app_name">BiblioParis</string>
+    <string name="app_name">BiblioParisLocal</string>
+
+    <!-- Main Activity -->
+    <string name="app_titre">BiblioParis</string>
+    <string name="google_map_key">AIzaSyB_qsP8AOP_P0MdlPz-48TDaJYjTP3vbjo</string>
+
+    <!-- FastDialog -->
+    <string name="ok">OK</string>
+    <string name="cancel">Annuler</string>
     <string name="title_activity_maps">Map</string>
 
-    <string name="title_activity_tabbed">TabbedActivity</string>
-    <string name="tab_text_1">Carte</string>
-    <string name="tab_text_2">Liste</string>
-    <string name="tab_text_3">Préférences</string>
 </resources>
