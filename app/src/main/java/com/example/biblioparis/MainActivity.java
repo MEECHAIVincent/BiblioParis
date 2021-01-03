@@ -19,8 +19,7 @@ public class MainActivity extends AppCompatActivity {
         myTimer.schedule(new TimerTask() {
             @Override
             public void run() {
-                // TODO : lancement de HommeActivity
-                Intent myIntent = new Intent(MainActivity.this, SideMenu.class);
+                Intent myIntent = new Intent(MainActivity.this, TabbedActivity.class);
                 startActivity(myIntent);
                 finish(); // permet de tuer la page
             }
