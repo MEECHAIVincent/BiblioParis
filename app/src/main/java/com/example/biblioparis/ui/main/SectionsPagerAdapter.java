@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.example.biblioparis.ItemFragment;
 import com.example.biblioparis.MapsFragment;
 import com.example.biblioparis.R;
+import com.example.biblioparis.Test;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -40,7 +41,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return new MapsFragment();
             case 1:
-                return new ItemFragment();
+                return new ();
             default:
                 return null;
         }
