@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BiblioParisLocal</string>
+    <string name="app_name">BiblioParis</string>
 
     <!-- Main Activity -->
     <string name="app_titre">BiblioParis</string>
