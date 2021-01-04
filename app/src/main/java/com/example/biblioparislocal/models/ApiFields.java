@@ -7,7 +7,7 @@ public class ApiFields implements Serializable {
     private String adresse_ville;
     private String voie;
     private String cp;
-    private String coordonnees_insee;
+    private String coordonnees_ban;
     private String libelle1;
 
     public String getComment() {
@@ -42,12 +42,12 @@ public class ApiFields implements Serializable {
         this.cp = cp;
     }
 
-    public String getCoordonnees_insee() {
-        return coordonnees_insee;
+    public String getCoordonnees_ban() {
+        return coordonnees_ban;
     }
 
-    public void setCoordonnees_insee(String coordonnees_insee) {
-        this.coordonnees_insee = coordonnees_insee;
+    public void setCoordonnees_ban(String coordonnees_ban) {
+        this.coordonnees_ban = coordonnees_ban;
     }
 
     public String getLibelle1() {

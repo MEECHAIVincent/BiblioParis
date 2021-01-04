@@ -7,7 +7,7 @@
         android:id="@+id/menu_carte"
         />
 
-    <item android:title="Détails"
-        android:id="@+id/menu_details"
+    <item android:title="Liste"
+        android:id="@+id/menu_liste"
         />
 </menu>

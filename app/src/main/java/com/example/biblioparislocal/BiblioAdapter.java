@@ -15,11 +15,11 @@ import com.example.biblioparislocal.models.ApiRecords;
 
 import java.util.List;
 
-public class RestaurantAdapter extends ArrayAdapter<ApiRecords> {
+public class BiblioAdapter extends ArrayAdapter<ApiRecords> {
     private int resId;
 
 
-        public RestaurantAdapter(@NonNull Context context, int resource, @NonNull List<ApiRecords> objects) {
+        public BiblioAdapter(@NonNull Context context, int resource, @NonNull List<ApiRecords> objects) {
             super(context, resource, objects);
 
             resId = resource;

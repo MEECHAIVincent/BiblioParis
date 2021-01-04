@@ -2,8 +2,12 @@ package com.example.biblioparislocal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.android.volley.Request;
@@ -14,6 +18,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.biblioparislocal.models.ApiBiblio;
 import com.example.biblioparislocal.models.ApiFields;
+import com.example.biblioparislocal.models.ApiRecords;
 import com.example.biblioparislocal.utils.Constant;
 import com.google.gson.Gson;
 
@@ -55,18 +60,43 @@ public class ListingActivity extends AppCompatActivity {
 
         queue.add(stringRequest);
 
-
-
-
-
-
-        //Gestion de la liste
-        List<ApiFields> biblioList = new ArrayList<>();
-
-
     }
     private void parseJSON(String response) {
         ApiBiblio api = new Gson().fromJson(response, ApiBiblio.class);
+
+        listViewData.setAdapter(
+                new BiblioAdapter(
+                        ListingActivity.this,
+                        R.layout.item_restaurant,
+                        api.getRecords()
+                )
+        );
+        listViewData.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                // Objet Resataurant
+                ApiRecords item = api.getRecords().get(position);
+
+                // Intent
+                Intent intentDetails = new Intent(ListingActivity.this, DetailActivity.class);
+
+
+                //passage de données simple
+                intentDetails.putExtra("Libelle1",item.getFields().getLibelle1());
+                intentDetails.putExtra("Comment",item.getFields().getComment());
+                intentDetails.putExtra("Cp",item.getFields().getCp());
+                intentDetails.putExtra("Voie",item.getFields().getVoie());
+                intentDetails.putExtra("Adresse",item.getFields().getAdresse_ville());
+                intentDetails.putExtra("Coord",item.getFields().getCoordonnees_ban());
+
+                //passage de l'objet restaurant
+                //intentDetails.putExtra("object", item);
+
+                startActivity(intentDetails);
+
+            }
+        });
     }
 
 }
