@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
     private List<ApiRecords> records;
     private Map<String, ApiFields> markers = new HashMap<String, ApiFields>();
@@ -66,10 +66,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        //LatLng paris = new LatLng(lat, lng);
+        LatLng paris = new LatLng(48.8534, 2.3488);
         //mMap.addMarker(new MarkerOptions().position(paris).title("Paris"));
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(paris));
-        //googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(paris, 11));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(paris));
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(paris, 15));
 
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override

@@ -8,12 +8,6 @@
     tools:context=".DetailActivity">
 
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/splashscreen"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="80dp"/>
 
 
     <LinearLayout
@@ -142,30 +136,22 @@
         />
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp">
 
-    <TextView
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Coordonnées LatLng: "
-        android:fontFamily="sans-serif"
-        android:textStyle="bold"
+        android:text="Favoris"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"/>
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        tools:context=".MapsActivity"
         />
-
-    <TextView
-        android:id="@+id/textViewCoordonnees_Ban"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="LatLng"
-        android:fontFamily="sans-serif"
-        />
-
-    </LinearLayout>
 
 
 
