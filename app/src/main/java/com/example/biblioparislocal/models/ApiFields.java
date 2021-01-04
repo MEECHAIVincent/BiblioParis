@@ -9,6 +9,15 @@ public class ApiFields implements Serializable {
     private String cp;
     private String coordonnees_ban;
     private String libelle1;
+    private double[] coordonnees_finales;
+
+    public double[] getCoordonnees_finales() {
+        return coordonnees_finales;
+    }
+
+    public void setCoordonnees_finales(double[] coordonnees_finales) {
+        this.coordonnees_finales = coordonnees_finales;
+    }
 
     public String getComment() {
         return comment;
