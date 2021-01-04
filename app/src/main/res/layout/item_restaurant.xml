@@ -1,23 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="5dp"
+    android:padding="8dp"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical">
+    android:layout_height="150dp"
+    >
 
-    <TextView
-        android:id="@+id/textViewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        tools:text="MC DO" />
+    <ImageView
+        android:src="@mipmap/ic_launcher_foreground"
+        android:id="@+id/thumbnail"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        />
 
-    <TextView
-        android:id="@+id/textViewCategory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        tools:text="Fast Food" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="131dp"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Naruto: Shippuuden"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/textViewVoie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Voie" />
+
+        <TextView
+            android:id="@+id/textViewCp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Cp" />
+
+
+    </LinearLayout>
 
 
 

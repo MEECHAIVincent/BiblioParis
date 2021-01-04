@@ -7,120 +7,165 @@
     android:orientation="vertical"
     tools:context=".DetailActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:textSize="23sp"
-        android:text="Labelle1"
-        android:fontFamily="sans-serif"
-        />
 
-    <TextView
-        android:id="@+id/textViewLabelle1"
-        android:layout_width="match_parent"
+    <ImageView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:textSize="23sp"
-        tools:text="Libelle"
-        android:fontFamily="sans-serif"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:textSize="23sp"
-        android:text="Comment"
-        android:fontFamily="sans-serif"
-        />
-
-    <TextView
-        android:id="@+id/textViewComment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:textSize="23sp"
-        tools:text="Comment"
-        android:fontFamily="sans-serif"
-        />
+        android:src="@drawable/splashscreen"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="80dp"/>
 
 
-    <TextView
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:textSize="23sp"
-        android:text="Voie"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Type Bibliothèque: "
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/textViewComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Comment"
+            android:fontFamily="sans-serif"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nom: "
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/textViewLabelle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Libelle"
+            android:fontFamily="sans-serif"
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adresse: "
         android:fontFamily="sans-serif"
+        android:textStyle="bold"
         />
 
     <TextView
         android:id="@+id/textViewVoie"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:textSize="23sp"
         tools:text="Voie"
         android:fontFamily="sans-serif"
         />
 
-    <TextView
-        android:layout_width="match_parent"
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:textSize="23sp"
-        android:text="Ville"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ville: "
         android:fontFamily="sans-serif"
+        android:textStyle="bold"
         />
 
     <TextView
         android:id="@+id/textViewVille"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:textSize="23sp"
         tools:text="Ville"
         android:fontFamily="sans-serif"
         />
 
-    <TextView
-        android:layout_width="match_parent"
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:textSize="23sp"
-        android:text="Cp"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Code Postal: "
         android:fontFamily="sans-serif"
+        android:textStyle="bold"
         />
 
     <TextView
         android:id="@+id/textViewCp"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:textSize="23sp"
         tools:text="Cp"
         android:fontFamily="sans-serif"
         />
 
-    <TextView
-        android:layout_width="match_parent"
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:textSize="23sp"
-        android:text="LatLng"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Coordonnées LatLng: "
         android:fontFamily="sans-serif"
+        android:textStyle="bold"
         />
 
     <TextView
         android:id="@+id/textViewCoordonnees_Ban"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:textSize="23sp"
         tools:text="LatLng"
         android:fontFamily="sans-serif"
         />
+
+    </LinearLayout>
 
 
 

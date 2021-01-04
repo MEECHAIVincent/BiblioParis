@@ -10,10 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class HomeActivity extends AppCompatActivity {
-
-    private Button buttonCarte;
-    private Button buttonList;
+public class HomeActivity extends AppActivity {
 
 
     @Override
@@ -21,8 +18,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        buttonCarte = findViewById(R.id.button_carte);
-        buttonList = findViewById(R.id.button_list);
     }
 
     public void showCarte(View view) {

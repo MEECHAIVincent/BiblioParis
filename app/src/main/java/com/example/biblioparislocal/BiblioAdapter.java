@@ -39,7 +39,10 @@ public class BiblioAdapter extends ArrayAdapter<ApiRecords> {
 
                 // 2) récupération des vues (élements graphiques)
                 myViewHolder.textViewTitle = convertView.findViewById(R.id.textViewTitle);
-                myViewHolder.textViewCategory = convertView.findViewById(R.id.textViewCategory);
+                myViewHolder.textViewVoie = convertView.findViewById(R.id.textViewVoie);
+                myViewHolder.textViewCp = convertView.findViewById(R.id.textViewCp);
+
+
 
                 convertView.setTag(myViewHolder); // enregistrement du ViewHolder (qui contient le titre et la catégorie)
             } else {
@@ -51,14 +54,17 @@ public class BiblioAdapter extends ArrayAdapter<ApiRecords> {
 
             // 4) affichage (setText)
             myViewHolder.textViewTitle.setText(item.getFields().getLibelle1());
-            myViewHolder.textViewCategory.setText(item.getFields().getComment());
+            myViewHolder.textViewVoie.setText(item.getFields().getVoie());
+            myViewHolder.textViewCp.setText(item.getFields().getCp());
+
 
             return convertView;
         }
 
         class ViewHolder {
             TextView textViewTitle;
-            TextView textViewCategory;
+            TextView textViewVoie;
+            TextView textViewCp;
         }
 
     }

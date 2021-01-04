@@ -26,7 +26,7 @@ import com.example.biblioparislocal.utils.FastDialog;
 import com.example.biblioparislocal.utils.Network;
 import com.google.gson.Gson;
 
-public class DetailActivity extends AppCompatActivity {
+public class DetailActivity extends AppActivity {
 
     //déclaration
     private TextView textViewComment;
@@ -36,6 +36,13 @@ public class DetailActivity extends AppCompatActivity {
     private TextView textViewCoordonnees_Ban;
     private TextView textViewLibelle1;
 
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        //TODO : code spécifique
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -102,7 +109,7 @@ public class DetailActivity extends AppCompatActivity {
 
         }
     }
-
+/*
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -124,7 +131,7 @@ public class DetailActivity extends AppCompatActivity {
 
         }
         return super.onOptionsItemSelected(item);
-    }
+    } */
 
 
 
