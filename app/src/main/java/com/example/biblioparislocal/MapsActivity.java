@@ -42,7 +42,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Intent detailsIntent = new Intent(MapsActivity.this, HomeActivity.class);
                 startActivity(detailsIntent);
                 break;
-            case R.id.menu_details:
+            case R.id.menu_liste:
                 Intent carteIntent = new Intent(MapsActivity.this, DetailActivity.class);
                 startActivity(carteIntent);
                 break;

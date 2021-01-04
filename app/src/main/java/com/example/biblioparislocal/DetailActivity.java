@@ -20,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.biblioparislocal.models.ApiBiblio;
+import com.example.biblioparislocal.models.ApiFields;
 import com.example.biblioparislocal.utils.Constant;
 import com.example.biblioparislocal.utils.FastDialog;
 import com.example.biblioparislocal.utils.Network;
@@ -32,7 +33,7 @@ public class DetailActivity extends AppCompatActivity {
     private TextView textViewVoie;
     private TextView textViewVille;
     private TextView textViewCp;
-    private TextView textViewCoordonnees_Insee;
+    private TextView textViewCoordonnees_Ban;
     private TextView textViewLibelle1;
 
 
@@ -45,9 +46,7 @@ public class DetailActivity extends AppCompatActivity {
         textViewVoie = findViewById(R.id.textViewVoie);
         textViewVille = findViewById(R.id.textViewVille);
         textViewCp = findViewById(R.id.textViewCp);
-        textViewCoordonnees_Insee = findViewById(R.id.textViewCoordonnees_Insee);
-
-
+        textViewCoordonnees_Ban = findViewById(R.id.textViewCoordonnees_Ban);
 
         //Requete HTTP
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -77,7 +76,7 @@ public class DetailActivity extends AppCompatActivity {
 
     private void parseJSON(String response) {
         textViewComment.setText(null);
-        textViewCoordonnees_Insee.setText(null);
+        textViewCoordonnees_Ban.setText(null);
         textViewCp.setText(null);
         textViewVille.setText(null);
         textViewVoie.setText(null);
@@ -85,13 +84,22 @@ public class DetailActivity extends AppCompatActivity {
         //GSON
         ApiBiblio api = new Gson().fromJson(response, ApiBiblio.class);
 
-        if (api.getNhits() == 67) {
-            textViewLibelle1.setText(api.getRecords().get(2).getFields().getLibelle1());
-            textViewComment.setText(api.getRecords().get(2).getFields().getComment());
-            textViewVoie.setText(api.getRecords().get(2).getFields().getVoie());
-            textViewVille.setText(api.getRecords().get(2).getFields().getAdresse_ville());
-            textViewCp.setText(api.getRecords().get(2).getFields().getCp());
-            textViewCoordonnees_Insee.setText(api.getRecords().get(2).getFields().getCoordonnees_insee());
+        if (getIntent().getExtras() != null) {
+            String Libelle1 = getIntent().getExtras().getString("Libelle1");
+            String Comment = getIntent().getExtras().getString("Comment");
+            String Cp = getIntent().getExtras().getString("Cp");
+            String Adresse = getIntent().getExtras().getString("Adresse");
+            String Coord = getIntent().getExtras().getString("Coord");
+            String Voie = getIntent().getExtras().getString("Voie");
+
+
+            textViewLibelle1.setText(Libelle1);
+            textViewComment.setText(Comment);
+            textViewVoie.setText(Voie);
+            textViewVille.setText(Adresse);
+            textViewCp.setText(Cp);
+            textViewCoordonnees_Ban.setText(Coord);
+
         }
     }
 
