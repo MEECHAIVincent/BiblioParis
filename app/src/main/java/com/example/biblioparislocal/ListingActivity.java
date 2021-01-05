@@ -80,20 +80,17 @@ public class ListingActivity extends AppActivity {
 
 
                 //passage de données simple
-                intentDetails.putExtra("Libelle1",item.getFields().getLibelle1());
-                intentDetails.putExtra("Comment",item.getFields().getComment());
-                intentDetails.putExtra("Cp",item.getFields().getCp());
-                intentDetails.putExtra("Voie",item.getFields().getVoie());
-                intentDetails.putExtra("Adresse",item.getFields().getAdresse_ville());
-                intentDetails.putExtra("Coord",item.getFields().getCoordonnees_ban());
+                intentDetails.putExtra("objet",item);
 
                 //passage de l'objet restaurant
                 //intentDetails.putExtra("object", item);
 
                 startActivity(intentDetails);
-
             }
         });
+
+
+
     }
 
 

@@ -22,9 +22,11 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.biblioparislocal.models.ApiBiblio;
 import com.example.biblioparislocal.models.ApiFields;
+import com.example.biblioparislocal.models.ApiRecords;
 import com.example.biblioparislocal.utils.Constant;
 import com.example.biblioparislocal.utils.FastDialog;
 import com.example.biblioparislocal.utils.Network;
+import com.example.biblioparislocal.utils.Preference;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -43,6 +45,7 @@ public class DetailActivity extends AppActivity implements OnMapReadyCallback {
     private TextView textViewCp;
     private TextView textViewLibelle1;
     private GoogleMap mMap;
+    private ApiRecords item;
 
 
     @Override
@@ -67,64 +70,29 @@ public class DetailActivity extends AppActivity implements OnMapReadyCallback {
         textViewVille = findViewById(R.id.textViewVille);
         textViewCp = findViewById(R.id.textViewCp);
 
-        //Requete HTTP
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String URL = Constant.URL;
+        // Récupère le donnée pour le transfert de data
+        if (getIntent().getExtras() != null) {
+            item = (ApiRecords) getIntent().getExtras().get("objet");
 
-        //Request a string response from the provided URL
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Log.e("volley", "onResponse" + response);
 
-                        parseJSON(response);
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e("volley", "onResponse" + error);
-            }
-
-        });
-
-        queue.add(stringRequest);
-
+            textViewLibelle1.setText(item.getFields().getLibelle1());
+            textViewComment.setText(item.getFields().getComment());
+            textViewVoie.setText(item.getFields().getVoie());
+            textViewVille.setText(item.getFields().getAdresse_ville());
+            textViewCp.setText(item.getFields().getCp());
+        }
     }
 
+    public void submit(View view) {
+        Preference.setFavoris(DetailActivity.this, item);
 
-    private void parseJSON(String response) {
-        textViewComment.setText(null);
-        textViewCp.setText(null);
-        textViewVille.setText(null);
-        textViewVoie.setText(null);
-        textViewLibelle1.setText(null);
-        //GSON
-        ApiBiblio api = new Gson().fromJson(response, ApiBiblio.class);
-
-        if (getIntent().getExtras() != null) {
-            String Libelle1 = getIntent().getExtras().getString("Libelle1");
-            String Comment = getIntent().getExtras().getString("Comment");
-            String Cp = getIntent().getExtras().getString("Cp");
-            String Adresse = getIntent().getExtras().getString("Adresse");
-            String Voie = getIntent().getExtras().getString("Voie");
-
-
-            textViewLibelle1.setText(Libelle1);
-            textViewComment.setText(Comment);
-            textViewVoie.setText(Voie);
-            textViewVille.setText(Adresse);
-            textViewCp.setText(Cp);
-
-        }
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        String Libelle1 = getIntent().getExtras().getString("Libelle1");
-        String Coord = getIntent().getExtras().getString("Coord");
+        String Coord = item.getFields().getCoordonnees_ban();
         String[] parts = Coord.split(",");
         String Lat  = parts[0];
         String Lng = parts[1];
@@ -132,7 +100,7 @@ public class DetailActivity extends AppActivity implements OnMapReadyCallback {
 
         // Add a marker PositionJson and move the camera
         LatLng paris = new LatLng(Double.parseDouble(Lat), Double.parseDouble(Lng));
-        mMap.addMarker(new MarkerOptions().position(paris).title(Libelle1));
+        mMap.addMarker(new MarkerOptions().position(paris).title(item.getFields().getLibelle1()));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(paris));
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(paris, 11));
 
@@ -142,6 +110,5 @@ public class DetailActivity extends AppActivity implements OnMapReadyCallback {
     }
 
 
-    public void submit(View view) {
-    }
+
 }

@@ -1,6 +1,8 @@
 package com.example.biblioparislocal.models;
 
-public class ApiRecords {
+import java.io.Serializable;
+
+public class ApiRecords implements Serializable {
     private ApiFields fields;
 
     public ApiFields getFields() {
