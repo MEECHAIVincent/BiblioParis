@@ -23,6 +23,8 @@ public class AppActivity extends AppCompatActivity {
     }
 
 
+    //Bouton menu + retour
+
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
         switch (item.getItemId()) {
             case android.R.id.home:

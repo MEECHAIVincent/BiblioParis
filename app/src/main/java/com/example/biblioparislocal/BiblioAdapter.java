@@ -49,7 +49,7 @@ public class BiblioAdapter extends ArrayAdapter<ApiRecords> {
                 myViewHolder = (ViewHolder) convertView.getTag();
             }
 
-            // 3) données (Restaurant)
+            // 3) données (Bibliothèques)
             ApiRecords item = getItem(position);
 
             // 4) affichage (setText)

@@ -20,6 +20,8 @@ import com.android.volley.toolbox.Volley;
 import com.example.biblioparislocal.models.ApiBiblio;
 import com.example.biblioparislocal.models.ApiRecords;
 import com.example.biblioparislocal.utils.Constant;
+import com.example.biblioparislocal.utils.FastDialog;
+import com.example.biblioparislocal.utils.Network;
 import com.google.gson.Gson;
 
 public class ListingActivity extends AppActivity {
@@ -31,6 +33,15 @@ public class ListingActivity extends AppActivity {
         setContentView(R.layout.activity_listing);
 
         listViewData = findViewById(R.id.listViewData);
+
+        if (!Network.isNetworkAvailable(ListingActivity.this)) {
+            FastDialog.showDialog(
+                    ListingActivity.this,
+                    FastDialog.SIMPLE_DIALOG,
+                    "Vous devez être connecté"
+            );
+            return;
+        }
 
         //Requete HTTP
         RequestQueue queue = Volley.newRequestQueue(this);

@@ -70,6 +70,15 @@ public class DetailActivity extends AppActivity implements OnMapReadyCallback {
         textViewVille = findViewById(R.id.textViewVille);
         textViewCp = findViewById(R.id.textViewCp);
 
+        if (!Network.isNetworkAvailable(DetailActivity.this)) {
+            FastDialog.showDialog(
+                    DetailActivity.this,
+                    FastDialog.SIMPLE_DIALOG,
+                    "Vous devez être connecté"
+            );
+            return;
+        }
+
         // Récupère le donnée pour le transfert de data
         if (getIntent().getExtras() != null) {
             item = (ApiRecords) getIntent().getExtras().get("objet");
@@ -84,6 +93,7 @@ public class DetailActivity extends AppActivity implements OnMapReadyCallback {
     }
 
     public void submit(View view) {
+        //Ajout des données dans les favoris
         Preference.addFavoris(DetailActivity.this, item);
 
         Toast.makeText(DetailActivity.this, "Add to Favoris", Toast.LENGTH_SHORT).show();
@@ -93,6 +103,8 @@ public class DetailActivity extends AppActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
+        //Séparation du string par la ","
 
         String Coord = item.getFields().getCoordonnees_ban();
         String[] parts = Coord.split(",");

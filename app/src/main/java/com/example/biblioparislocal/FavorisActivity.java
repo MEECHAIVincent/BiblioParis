@@ -18,14 +18,16 @@ import android.widget.Toast;
 import com.example.biblioparislocal.models.ApiRecords;
 import com.example.biblioparislocal.utils.Preference;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FavorisActivity extends AppActivity {
 
     private ListView listViewData;
-    private List<ApiRecords> records;
+    private List<ApiRecords> records = new ArrayList<>();
     private Button resetButton;
-    private ArrayAdapter<Object> adapter;
+
+    private ArrayAdapter<ApiRecords> adapter;
 
 
     @Override
@@ -37,7 +39,8 @@ public class FavorisActivity extends AppActivity {
 
         records = Preference.getFavoris(FavorisActivity.this);
 
-        listViewData.setAdapter(
+
+        adapter = (
                 new BiblioAdapter(
                         FavorisActivity.this,
                         R.layout.item_biblio,
@@ -47,6 +50,7 @@ public class FavorisActivity extends AppActivity {
 
         );
 
+        listViewData.setAdapter(adapter);
 
         listViewData.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -59,26 +63,27 @@ public class FavorisActivity extends AppActivity {
                 Intent intentDetails = new Intent(FavorisActivity.this, DetailActivity.class);
 
 
-                //passage de données simple
+                //passage de données bibliothèques
                 intentDetails.putExtra("objet", item);
 
-                //passage de l'objet restaurant
-                //intentDetails.putExtra("object", item);
 
                 startActivity(intentDetails);
-            }
-        });
-
-        resetButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Preference.resetFavoris(FavorisActivity.this);
-                Toast.makeText(FavorisActivity.this, "List reseted", Toast.LENGTH_SHORT).show();
+                adapter.notifyDataSetChanged(); //rafraîchissement
             }
         });
 
     }
 
 
+    public void reset(View view) {
+        Preference.resetFavoris(FavorisActivity.this);
+
+
+        Toast.makeText(FavorisActivity.this, "Reset Favoris List", Toast.LENGTH_SHORT).show();
+        adapter.notifyDataSetChanged();//rafraîchissement
+
+        // Intent
+        Intent intentRetour = new Intent(FavorisActivity.this, HomeActivity.class);
+        startActivity(intentRetour);
+    }
 }
