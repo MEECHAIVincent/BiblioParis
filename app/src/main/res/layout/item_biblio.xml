@@ -2,12 +2,12 @@
 <LinearLayout
 
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginTop="5dp"
     android:padding="8dp"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
-    >
+    android:layout_height="150dp">
 
     <ImageView
         android:src="@mipmap/ic_launcher_foreground"
@@ -28,7 +28,7 @@
             android:id="@+id/textViewTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Naruto: Shippuuden"
+            tools:text="Nom"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -38,14 +38,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Voie" />
+            tools:text="Voie" />
 
         <TextView
             android:id="@+id/textViewCp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Cp" />
+            tools:text="Cp" />
 
 
     </LinearLayout>

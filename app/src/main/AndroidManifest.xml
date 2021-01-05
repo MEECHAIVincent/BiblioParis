@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BiblioParisLocal">
-        <activity android:name=".ListingActivity"></activity>
+        <activity android:name=".FavorisActivity"></activity>
+        <activity android:name=".ListingActivity" />
         <activity android:name=".HomeActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

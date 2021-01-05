@@ -123,6 +123,7 @@ public class DetailActivity extends AppActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        String Libelle1 = getIntent().getExtras().getString("Libelle1");
         String Coord = getIntent().getExtras().getString("Coord");
         String[] parts = Coord.split(",");
         String Lat  = parts[0];
@@ -131,7 +132,7 @@ public class DetailActivity extends AppActivity implements OnMapReadyCallback {
 
         // Add a marker PositionJson and move the camera
         LatLng paris = new LatLng(Double.parseDouble(Lat), Double.parseDouble(Lng));
-        mMap.addMarker(new MarkerOptions().position(paris).title("Paris"));
+        mMap.addMarker(new MarkerOptions().position(paris).title(Libelle1));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(paris));
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(paris, 11));
 
@@ -139,31 +140,8 @@ public class DetailActivity extends AppActivity implements OnMapReadyCallback {
 
 
     }
-/*
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_default,menu);
-        return super.onCreateOptionsMenu(menu);
+
+    public void submit(View view) {
     }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_home:
-                Intent detailsIntent = new Intent(DetailActivity.this, HomeActivity.class);
-                startActivity(detailsIntent);
-                break;
-            case R.id.menu_carte:
-                Intent carteIntent = new Intent(DetailActivity.this, MapsActivity.class);
-                startActivity(carteIntent);
-                break;
-
-        }
-        return super.onOptionsItemSelected(item);
-    } */
-
-
-
-
 }

@@ -139,9 +139,12 @@
 
 
     <Button
+        android:onClick="submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Favoris"
+        android:background="@drawable/rounded_button"
+        android:textColor="@color/white"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="10dp"/>
 

@@ -1,11 +1,12 @@
 package com.example.biblioparislocal;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -17,13 +18,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.biblioparislocal.models.ApiBiblio;
-import com.example.biblioparislocal.models.ApiFields;
 import com.example.biblioparislocal.models.ApiRecords;
 import com.example.biblioparislocal.utils.Constant;
 import com.google.gson.Gson;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ListingActivity extends AppActivity {
     private ListView listViewData;
@@ -67,7 +64,7 @@ public class ListingActivity extends AppActivity {
         listViewData.setAdapter(
                 new BiblioAdapter(
                         ListingActivity.this,
-                        R.layout.item_restaurant,
+                        R.layout.item_biblio,
                         api.getRecords()
                 )
         );
@@ -97,6 +94,26 @@ public class ListingActivity extends AppActivity {
 
             }
         });
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_default,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_favoris:
+                Intent detailsIntent = new Intent(ListingActivity.this, FavorisActivity.class);
+                startActivity(detailsIntent);
+                break;
+
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }
