@@ -84,7 +84,7 @@ public class DetailActivity extends AppActivity implements OnMapReadyCallback {
     }
 
     public void submit(View view) {
-        Preference.setFavoris(DetailActivity.this, item);
+        Preference.addFavoris(DetailActivity.this, item);
 
         Toast.makeText(DetailActivity.this, "Add to Favoris", Toast.LENGTH_SHORT).show();
 

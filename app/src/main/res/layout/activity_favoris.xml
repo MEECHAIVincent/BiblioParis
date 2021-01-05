@@ -19,7 +19,17 @@
     <ListView
         android:id="@+id/listViewData"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         />
+    <Button
+        android:onClick="reset"
+        android:id="@+id/reset_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/reset_favoris"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_button"
+    />
 
 </LinearLayout>

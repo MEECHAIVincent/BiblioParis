@@ -9,5 +9,6 @@
     <string name="ok">OK</string>
     <string name="cancel">Annuler</string>
     <string name="title_activity_maps">Map</string>
+    <string name="reset_favoris">Reset Favoris</string>
 
 </resources>
