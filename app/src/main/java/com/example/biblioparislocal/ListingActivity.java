@@ -94,23 +94,5 @@ public class ListingActivity extends AppActivity {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_default,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_favoris:
-                Intent detailsIntent = new Intent(ListingActivity.this, FavorisActivity.class);
-                startActivity(detailsIntent);
-                break;
-
-
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
 }

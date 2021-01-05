@@ -1,6 +1,8 @@
 package com.example.biblioparislocal;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -14,10 +16,25 @@ public class AppActivity extends AppCompatActivity {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_default,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
         switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed(); //fermeture activity
+                break;
+            case R.id.menu_home:
+                Intent homeIntent = new Intent(AppActivity.this, HomeActivity.class);
+                startActivity(homeIntent);
+                break;
+            case R.id.menu_favoris:
+                Intent favorisIntent = new Intent(AppActivity.this, FavorisActivity.class);
+                startActivity(favorisIntent);
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -34,4 +51,6 @@ public class AppActivity extends AppCompatActivity {
             }
         }
     }
+
+
 }
